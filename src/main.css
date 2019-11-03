@@ -1,0 +1,12 @@
+.navbar {
+  background: lightgray;
+  padding: 10px 0 10px 0;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: .5rem;
+}

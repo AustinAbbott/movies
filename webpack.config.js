@@ -8,7 +8,13 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
-      }
+      },
+    {
+        // For pure CSS (without CSS modules)
+        test: /\.css$/i,
+        exclude: /\.module\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ]
   },
   output: {
