@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "react-dev": "webpack -d --watch",
+    "start": "live-server ./client/dist"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,11 @@
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   }
 }
