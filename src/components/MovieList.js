@@ -4,7 +4,7 @@ import Movie from './Movie';
 
 const MovieList = (props) => {
   return (
-    <Movie movie={props.movies[0]}/>
+    props.movies.map((movie,i) => <Movie movie={movie} key={i} />)
   )
 };
 
