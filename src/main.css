@@ -1,6 +1,6 @@
 .navbar {
   background: lightgray;
-  padding: 10px 0 10px 0;
+  padding: 1rem 0 1rem 0;
 }
 
 body {
@@ -9,4 +9,17 @@ body {
 
 h1 {
   margin: .5rem;
+}
+
+.p2-t {
+  padding-top: 2rem;
+}
+.p2-a {
+  padding: 2rem;
+}
+
+
+.lines {
+  border: 1px solid gray;
+  margin: 0 10% 0 10%;
 }

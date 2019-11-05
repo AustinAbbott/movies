@@ -2,7 +2,7 @@ import React from 'react';
 
 const Movie = (props) => {
   return (
-    <div> {props.movie.title}</div>
+    <div className="lines p2-a"> {props.movie.title}</div>
   )
 };
 
