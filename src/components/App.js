@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieList from './MovieList';
+import SearchBar from './SearchBar';
 import '../main.css';
 
 var movies = [
@@ -15,7 +16,10 @@ class App extends React.Component {
     return(
     <div>
       <div className="navbar"><h1>MovieList</h1></div>
-      <MovieList movies={movies}/>
+      <div className="m-rl">
+        <SearchBar />
+        <MovieList movies={movies}/>
+      </div>
     </div>
   )}
 }

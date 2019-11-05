@@ -17,9 +17,14 @@ h1 {
 .p2-a {
   padding: 2rem;
 }
+.p0-a {
+  padding: 0.5rem;
+}
 
+.m-rl {
+  margin: 0 10% 0 10%;
+}
 
 .lines {
   border: 1px solid gray;
-  margin: 0 10% 0 10%;
 }
