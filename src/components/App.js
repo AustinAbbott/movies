@@ -12,13 +12,28 @@ var movies = [
 ];
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchResults: movies
+    }
+    this.findMovie = this.findMovie.bind(this);
+  }
+
+  findMovie(search) {
+    let results = movies.filter(movie =>{
+      return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0}
+  );
+    this.setState({searchResults: results});
+  }
+
   render(){
     return(
     <div>
       <div className="navbar"><h1>MovieList</h1></div>
       <div className="m-rl">
-        <SearchBar />
-        <MovieList movies={movies}/>
+        <SearchBar movies={movies} findMovie={this.findMovie}/>
+        <MovieList movies={this.state.searchResults}/>
       </div>
     </div>
   )}

@@ -10,8 +10,9 @@ class SearchBar extends Component {
   }
 
   handleInput(e) {
-    this.setState({searchValue: e.target.value})
+    this.setState({searchValue: e.target.value});
   }
+
   render() {
     return (
       <div className="p2-t">
@@ -21,8 +22,11 @@ class SearchBar extends Component {
           placeholder="Search..."
           value={this.state.searchValue}
           onChange={this.handleInput}/>
-        
-        <button className="p0-a">Go!</button>
+
+        <button
+          className="p0-a"
+          onClick={() => this.props.findMovie(this.state.searchValue)}
+        >Go!</button>
       </div>
     )
   }
