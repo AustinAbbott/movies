@@ -16,7 +16,7 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <div className="p2-t">
+      <form className="p2-t">
         <input
           className="p0-a"
           type="text"
@@ -26,9 +26,9 @@ class AddMovie extends Component {
 
         <button
           className="p0-a greenbtn"
-          onClick={() => this.props.addMovie(this.state.movie)}
+          onClick={(e) => this.props.addMovie(e, this.state.movie)}
         >Add</button>
-      </div>
+      </form>
     )
   }
 }
