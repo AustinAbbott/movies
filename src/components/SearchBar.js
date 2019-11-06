@@ -15,7 +15,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="p2-t">
+      <form className="p2-t">
         <input
           className="p0-a"
           type="text"
@@ -25,9 +25,9 @@ class SearchBar extends Component {
 
         <button
           className="p0-a"
-          onClick={() => this.props.findMovie(this.state.searchValue)}
+          onClick={(e) => this.props.findMovie(e,this.state.searchValue)}
         >Go!</button>
-      </div>
+      </form>
     )
   }
 }

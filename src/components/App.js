@@ -23,7 +23,8 @@ class App extends React.Component {
     this.addMovie = this.addMovie.bind(this);
   }
 
-  findMovie(search) {
+  findMovie(e, search) {
+    e.preventDefault();
     let results = this.state.allMovies.filter(movie =>{
       return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0});
     this.setState({searchResults: results});
