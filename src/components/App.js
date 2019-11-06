@@ -22,9 +22,8 @@ class App extends React.Component {
 
   addMovie(movie) {
     this.setState({
-      allMovies: [...this.state.allMovies, {title: movie}],
-      searchResults: [...this.state.searchResults, {title: movie}]
-    });
+      allMovies: [...this.state.allMovies, {title: movie, watched: true}]
+    }, ()=> {this.findMovie("")});
   }
 
   render(){

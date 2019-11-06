@@ -1,8 +1,15 @@
 import React from "react";
 
 const Movie = (props) => {
+  console.log(props.movie);
   return (
-    <div className="lines p2-a"> {props.movie.title}</div>
+    <div className="lines p2-a">
+      <span>
+        {props.movie.title}
+      </span>
+      <button className={`f-r ${props.movie.watched ? "greenbtn" : "graybtn" }`}>Watched</button>
+
+    </div>
   );
 };
 
