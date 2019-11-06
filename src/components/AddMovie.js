@@ -8,10 +8,17 @@ class AddMovie extends Component {
     };
 
     this.handleInput = this.handleInput.bind(this);
+    this.submitValue = this.submitValue.bind(this);
   }
 
   handleInput(e) {
     this.setState({movie: e.target.value})
+  }
+
+  submitValue(e) {
+    e.preventDefault();
+    this.props.addMovie(this.state.movie);
+    this.setState({movie: ""});
   }
 
   render() {
@@ -26,7 +33,7 @@ class AddMovie extends Component {
 
         <button
           className="p0-a greenbtn"
-          onClick={(e) => this.props.addMovie(e, this.state.movie)}
+          onClick={this.submitValue}
         >Add</button>
       </form>
     )

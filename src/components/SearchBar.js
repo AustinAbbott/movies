@@ -7,10 +7,17 @@ class SearchBar extends Component {
       searchValue: ""
     }
     this.handleInput = this.handleInput.bind(this);
+    this.submitValue = this.submitValue.bind(this);
   }
 
   handleInput(e) {
     this.setState({searchValue: e.target.value});
+  }
+
+  submitValue(e) {
+    e.preventDefault();
+    this.props.findMovie(this.state.searchValue);
+    this.setState({searchValue: ""});
   }
 
   render() {
@@ -25,7 +32,7 @@ class SearchBar extends Component {
 
         <button
           className="p0-a"
-          onClick={(e) => this.props.findMovie(e,this.state.searchValue)}
+          onClick={this.submitValue}
         >Go!</button>
       </form>
     )

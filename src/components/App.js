@@ -23,15 +23,13 @@ class App extends React.Component {
     this.addMovie = this.addMovie.bind(this);
   }
 
-  findMovie(e, search) {
-    e.preventDefault();
+  findMovie(search) {
     let results = this.state.allMovies.filter(movie =>{
       return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0});
     this.setState({searchResults: results});
   }
 
-  addMovie(e,movie) {
-    e.preventDefault();
+  addMovie(movie) {
     this.setState({
       allMovies: [...this.state.allMovies, {title: movie}],
       searchResults: [...this.state.searchResults, {title: movie}]
