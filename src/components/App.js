@@ -24,7 +24,7 @@ class App extends React.Component {
   }
 
   findMovie(search) {
-    let results = this.allMovies.filter(movie =>{
+    let results = this.state.allMovies.filter(movie =>{
       return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0});
     this.setState({searchResults: results});
   }
