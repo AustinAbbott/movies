@@ -8,7 +8,10 @@ const MovieList = (props) => {
   return (
     <div className="p2-t">
       {message}
-      {props.movies.map((movie,i) => <Movie movie={movie} key={i} />)}
+      {props.movies.map((movie,i) => <Movie
+        toggleWatched={() => props.toggleWatched(movie)}
+        movie={movie}
+        key={i} />)}
     </div>
   );
 };

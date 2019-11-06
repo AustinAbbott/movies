@@ -10,11 +10,12 @@ class App extends React.Component {
       searchResults: [],
       allMovies: []
     };
-    this.findMovie = this.findMovie.bind(this);
+    this.filterMovie = this.filterMovie.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.toggleWatched = this.toggleWatched.bind(this);
   }
 
-  findMovie(search) {
+  filterMovie(search) {
     let results = this.state.allMovies.filter(movie =>{
       return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0});
     this.setState({searchResults: results});
@@ -23,7 +24,19 @@ class App extends React.Component {
   addMovie(movie) {
     this.setState({
       allMovies: [...this.state.allMovies, {title: movie, watched: true}]
-    }, ()=> {this.findMovie("")});
+    }, ()=> {this.filterMovie("")});
+  }
+
+  toggleWatched(selectedMovie) {
+    let newState = this.state.allMovies.map(movie => {
+      if (movie === selectedMovie) {
+        return {title: movie.title, watched: !movie.watched};
+      }
+      return movie;
+    });
+
+    this.setState({allMovies: newState}, () => this.filterMovie(""));
+
   }
 
   render(){
@@ -40,9 +53,11 @@ class App extends React.Component {
         <FormInput
           placeholderText="Search..."
           btnText="Go!"
-          fn={this.findMovie}
+          fn={this.filterMovie}
         />
-        <MovieList movies={this.state.searchResults}/>
+        <MovieList
+          movies={this.state.searchResults}
+          toggleWatched={this.toggleWatched}/>
       </div>
     </div>
   )};

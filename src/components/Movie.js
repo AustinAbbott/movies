@@ -7,7 +7,7 @@ const Movie = (props) => {
       <span>
         {props.movie.title}
       </span>
-      <button className={`f-r ${props.movie.watched ? "greenbtn" : "graybtn" }`}>Watched</button>
+      <button onClick={props.toggleWatched} className={`f-r ${props.movie.watched ? "greenbtn" : "graybtn" }`}>Watched</button>
 
     </div>
   );
