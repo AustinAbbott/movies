@@ -7,11 +7,17 @@ const MovieList = (props) => {
 
   return (
     <div className="p2-t">
-      {message}
+      <button
+        onClick={() => props.updateWatchBtns(true)}
+        className={`p1-a ${props.showWatched ? "greenbtn" : ""}`}>Watched</button>
+      <button
+        onClick={() => props.updateWatchBtns(false)}
+        className={`p1-a ${!props.showWatched ? "greenbtn" : ""}`}>To Watch</button>
       {props.movies.map((movie,i) => <Movie
         toggleWatched={props.toggleWatched}
         movie={movie}
         key={i} />)}
+      <div className="p2-t">{message}</div>
     </div>
   );
 };

@@ -20,6 +20,9 @@ h1 {
 .p0-a {
   padding: 0.5rem;
 }
+.p1-a {
+  padding: 1rem;
+}
 
 .m-rl {
   margin: 0 10% 0 10%;
