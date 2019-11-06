@@ -6,13 +6,7 @@ const MovieList = (props) => {
   let message = props.movies.length === 0 ? "No Movies Found" : "";
 
   return (
-    <div className="p2-t">
-      <button
-        onClick={() => props.updateWatchBtns(true)}
-        className={`p1-a ${props.showWatched ? "greenbtn" : ""}`}>Watched</button>
-      <button
-        onClick={() => props.updateWatchBtns(false)}
-        className={`p1-a ${!props.showWatched ? "greenbtn" : ""}`}>To Watch</button>
+    <div>
       {props.movies.map((movie,i) => <Movie
         toggleWatched={props.toggleWatched}
         movie={movie}

@@ -44,3 +44,7 @@ h1 {
 .f-r {
   float: right;
 }
+.inline {
+  display: inline-block;
+  padding-left: 1rem;
+}

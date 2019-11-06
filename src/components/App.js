@@ -57,11 +57,21 @@ class App extends React.Component {
           btnText="Add"
           fn={this.addMovie}
         />
-        <FormInput
-          placeholderText="Search..."
-          btnText="Go!"
-          fn={this.filterMovie}
-        />
+        <span>
+          <button
+            onClick={() => this.updateWatchBtns(true)}
+            className={`p1-a ${this.state.showWatched ? "greenbtn" : ""}`}>Watched</button>
+          <button
+            onClick={() => this.updateWatchBtns(false)}
+            className={`p1-a ${!this.state.showWatched ? "greenbtn" : ""}`}>To Watch</button>
+        </span>
+        <span className="inline">
+          <FormInput
+            placeholderText="Search..."
+            btnText="Go!"
+            fn={this.filterMovie}
+          />
+        </span>
         <MovieList
           movies={this.state.searchResults}
           updateWatchBtns={this.updateWatchBtns}
