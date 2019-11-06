@@ -1,5 +1,5 @@
-import React from 'react';
-import Movie from './Movie';
+import React from "react";
+import Movie from "./Movie";
 
 
 const MovieList = (props) => {
@@ -10,7 +10,7 @@ const MovieList = (props) => {
       {message}
       {props.movies.map((movie,i) => <Movie movie={movie} key={i} />)}
     </div>
-  )
+  );
 };
 
 export default MovieList;

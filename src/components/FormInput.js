@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class FormInput extends Component {
   constructor(props){
@@ -12,7 +12,7 @@ class FormInput extends Component {
   }
 
   handleInput(e) {
-    this.setState({userInput: e.target.value})
+    this.setState({userInput: e.target.value});
   }
 
   submitValue(e) {
@@ -36,7 +36,7 @@ class FormInput extends Component {
           onClick={this.submitValue}
         >{this.props.btnText}</button>
       </form>
-    )
+    );
   }
 }
 
