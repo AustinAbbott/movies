@@ -28,3 +28,8 @@ h1 {
 .lines {
   border: 1px solid gray;
 }
+
+.greenbtn {
+  background: green;
+  color: white;
+}

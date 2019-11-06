@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 import '../main.css';
 
 var movies = [
@@ -15,16 +16,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: movies
+      searchResults: [],
+      allMovies: []
     }
     this.findMovie = this.findMovie.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   findMovie(search) {
-    let results = movies.filter(movie =>{
-      return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0}
-  );
+    let results = this.allMovies.filter(movie =>{
+      return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0});
     this.setState({searchResults: results});
+  }
+
+  addMovie(e,movie) {
+    e.preventDefault();
+    this.setState({
+      allMovies: [...this.state.allMovies, {title: movie}],
+      searchResults: [...this.state.searchResults, {title: movie}]
+    });
   }
 
   render(){
@@ -32,7 +42,8 @@ class App extends React.Component {
     <div>
       <div className="navbar"><h1>MovieList</h1></div>
       <div className="m-rl">
-        <SearchBar movies={movies} findMovie={this.findMovie}/>
+        <AddMovie addMovie={this.addMovie} />
+        <SearchBar movies={this.state.allMovies} findMovie={this.findMovie}/>
         <MovieList movies={this.state.searchResults}/>
       </div>
     </div>
