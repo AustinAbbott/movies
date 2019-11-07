@@ -10,7 +10,7 @@ let movies = [{
   metascore: 4,
   imdbRating: 5,
   watched: true,
-  selected: true
+  selected: false
 },
 {
   title:"nice girls",
@@ -18,7 +18,8 @@ let movies = [{
   runtime: 200,
   metascore: 1,
   imdbRating: 5,
-  watched: true
+  watched: true,
+  selected: true
 }]
 
 class App extends React.Component {
@@ -28,15 +29,14 @@ class App extends React.Component {
     this.state = {
       searchResults: filtered,
       allMovies: movies,
-      showWatched: true,
-      selected: "mean girls"
+      showWatched: true
     };
 
     this.filterMovie = this.filterMovie.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.toggleWatched = this.toggleWatched.bind(this);
     this.updateWatchBtns = this.updateWatchBtns.bind(this);
-    this.updateSelected = this.updateSelected.bind(this);
+    this.toggleSelected = this.toggleSelected.bind(this);
   }
 
   filterMovie(search="") {
@@ -67,8 +67,15 @@ class App extends React.Component {
     this.setState({showWatched:shouldShow}, () => this.filterMovie());
   }
 
-  updateSelected(title) {
-    this.setState({selected: title});
+  toggleSelected(selectedMovie) {
+    let newState = this.state.allMovies.map(movie => {
+      if (movie === selectedMovie) {
+        return {...movie, selected: !movie.selected};
+      }
+      return movie;
+    });
+    this.setState({allMovies: newState},() => this.filterMovie());
+
   }
 
   render(){
@@ -102,8 +109,7 @@ class App extends React.Component {
           updateWatchBtns={this.updateWatchBtns}
           showWatched={this.state.showWatched}
           toggleWatched={this.toggleWatched}
-          selected={this.state.selected}
-          updateSelected={this.updateSelected}/>
+          toggleSelected={this.toggleSelected}/>
       </div>
     </div>
   )};

@@ -9,8 +9,7 @@ const MovieList = (props) => {
       {props.movies.map((movie,i) => <Movie
         toggleWatched={props.toggleWatched}
         movie={movie}
-        selected={props.selected === movie.title}
-        updateSelected={props.updateSelected}
+        toggleSelected={props.toggleSelected}
         key={i} />)}
       <div className="p2-t">{message}</div>
     </div>
