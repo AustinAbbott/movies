@@ -48,3 +48,26 @@ h1 {
   display: inline-block;
   padding-left: 1rem;
 }
+
+li {
+  list-style: none;
+}
+.bold {
+  font-weight: bold;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  float: right;
+}
+
+.col {
+  width: 47%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* .clear {
+  clear:right;
+} */
