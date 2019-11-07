@@ -3,14 +3,33 @@ import MovieList from "./MovieList";
 import FormInput from "./FormInput";
 import "../main.css";
 
+let movies = [{
+  title: "mean girls",
+  year: 2000,
+  runtime: 100,
+  metascore: 4,
+  imdbRating: 5,
+  watched: true
+},
+{
+  title:"nice girls",
+  year: 2005,
+  runtime: 200,
+  metascore: 1,
+  imdbRating: 5,
+  watched: false
+}]
+
 class App extends React.Component {
   constructor(props) {
     super(props);
+    let filtered = movies.filter(movie => movie.watched)
     this.state = {
-      searchResults: [],
-      allMovies: [],
+      searchResults: filtered,
+      allMovies: movies,
       showWatched: true
     };
+
     this.filterMovie = this.filterMovie.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.toggleWatched = this.toggleWatched.bind(this);
