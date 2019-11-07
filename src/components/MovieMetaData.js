@@ -11,7 +11,7 @@ const MovieMetaData = (props) => {
         <li><span className="bold">Metascore:</span> {props.movie.metascore}</li>
         <li><span className="bold">imdbRating:</span> {props.movie.imdbRating}</li>
         <li><span className="bold">Watched:</span> {props.movie.watched}
-          <button onClick={() => props.toggleWatched(props.movie)} className={`f-r ${props.movie.watched ? "greenbtn" : "graybtn" }`}>Watched</button>
+          <span onClick={() => props.toggleWatched(props.movie)} className={`cir ${props.movie.watched ? "filledcir" : "opencir" }`}></span>
         </li>
       </ol>
       <div className="col">

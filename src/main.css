@@ -71,3 +71,25 @@ img {
 .hide {
   display: none;
 }
+
+.cir {
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor:pointer;
+  border-radius: 50%;
+  margin-top: .5rem;
+}
+
+.filledcir {
+  background-color: green;
+  border: 1px solid black;
+}
+.opencir {
+  background-color: white;
+  border: 1px solid black;
+}
