@@ -39,6 +39,12 @@ class App extends React.Component {
     this.toggleSelected = this.toggleSelected.bind(this);
   }
 
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+  }
+
   filterMovie(search="") {
     let results = this.state.allMovies.filter(movie =>{
       return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0 && movie.watched === this.state.showWatched});
