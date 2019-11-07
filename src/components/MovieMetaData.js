@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MovieMetaData = (props) => {
-  console.log("movie meta data", props.movie.year);
   return (
     <div className="lines p2-a">
 
