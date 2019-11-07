@@ -9,7 +9,8 @@ let movies = [{
   runtime: 100,
   metascore: 4,
   imdbRating: 5,
-  watched: true
+  watched: true,
+  selected: true
 },
 {
   title:"nice girls",
@@ -17,7 +18,7 @@ let movies = [{
   runtime: 200,
   metascore: 1,
   imdbRating: 5,
-  watched: false
+  watched: true
 }]
 
 class App extends React.Component {
@@ -27,13 +28,15 @@ class App extends React.Component {
     this.state = {
       searchResults: filtered,
       allMovies: movies,
-      showWatched: true
+      showWatched: true,
+      selected: "mean girls"
     };
 
     this.filterMovie = this.filterMovie.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.toggleWatched = this.toggleWatched.bind(this);
     this.updateWatchBtns = this.updateWatchBtns.bind(this);
+    this.updateSelected = this.updateSelected.bind(this);
   }
 
   filterMovie(search="") {
@@ -64,6 +67,9 @@ class App extends React.Component {
     this.setState({showWatched:shouldShow}, () => this.filterMovie());
   }
 
+  updateSelected(title) {
+    this.setState({selected: title});
+  }
 
   render(){
     return(
@@ -95,7 +101,9 @@ class App extends React.Component {
           movies={this.state.searchResults}
           updateWatchBtns={this.updateWatchBtns}
           showWatched={this.state.showWatched}
-          toggleWatched={this.toggleWatched}/>
+          toggleWatched={this.toggleWatched}
+          selected={this.state.selected}
+          updateSelected={this.updateSelected}/>
       </div>
     </div>
   )};
