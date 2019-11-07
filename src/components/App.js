@@ -54,7 +54,7 @@ class App extends React.Component {
   toggleWatched(selectedMovie) {
     let newState = this.state.allMovies.map(movie => {
       if (movie === selectedMovie) {
-        return {title: movie.title, watched: !movie.watched};
+        return {...movie, watched: !movie.watched};
       }
       return movie;
     });
